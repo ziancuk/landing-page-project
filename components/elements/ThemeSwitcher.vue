@@ -9,10 +9,14 @@ function changeTheme(event: MouseEvent) {
     <div class="relative py-2">
         <button
             class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            @click="(event) => {
-                changeTheme(event)
-            }">
-            <span v-if="$colorMode.preference === 'system'">
+            @click="$colorMode.preference = $colorMode.preference === 'dark' ? 'light' : 'dark'">
+            <span v-if="$colorMode.preference === 'dark'">
+                <ElementsIconsLight />
+            </span>
+            <span v-else>
+                <ElementsIconsDark />
+            </span>
+            <!-- <span v-if="$colorMode.preference === 'system'">
                 <ElementsIconsSystem />
             </span>
             <span v-if="$colorMode.preference === 'light'">
@@ -20,9 +24,9 @@ function changeTheme(event: MouseEvent) {
             </span>
             <span v-if="$colorMode.preference === 'dark'">
                 <ElementsIconsDark />
-            </span>
+            </span> -->
         </button>
-        <div v-if="isOpen" class="fixed inset-0 z-30" @click="isOpen = false"></div>
+        <!-- <div v-if="isOpen" class="fixed inset-0 z-30" @click="isOpen = false"></div>
         <transition enter-active-class="ease-out duration-300"
             enter-from-class="transition transform opacity-0 translate-y-6"
             enter-to-class="transition transform opacity-100 translate-y-0"
@@ -62,7 +66,7 @@ function changeTheme(event: MouseEvent) {
                     </li>
                 </ul>
             </div>
-        </transition>
+        </transition> -->
 
     </div>
 </template>
